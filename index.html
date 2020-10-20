@@ -26,14 +26,14 @@
 
 
       <a-entity cursor="rayOrigin: mouse" position="5 2 8" >
-        <a-sphere position="0 0 0"  radius="0.2" color="#E3E3E3" material="color: #E3E3E3; shader: flat" id="Boton" sound="src: url(assets\pajaro2.mp3); on: click"
+        <a-sphere position="0 0 0"  radius="0.2" color="#EF2D5E" material="color: #EF2D5E; shader: flat" id="Boton" sound="src: url(assets\pajaro2.mp3); on: click"
           event-set__down="_event: mousedown; material.color: #BDBDBD; position: 0 0 -0.03"
-          event-set__up="_event: mouseup; material.color: #E3E3E3; position: 0 0 0">
+          event-set__up="_event: mouseup; material.color: #EF2D5E; position: 0 0 0">
         </a-sphere>
       </a-entity>
 
 
-		<a-entity camera look-controls>
+		<a-entity camera look-controls="reverseMouseDrag: true">
 	<!--	<a-entity geometry="primitive: plane; height: 10; width: 10" position="0 0 -1"  material="color: gray; opacity: 0.5"></a-entity> -->
     <a-entity geometry="primitive: plane; height: 0.45; width: 0.8" position="0 0 -1"  material="color: gray; opacity: 0.5"></a-entity>
     </a-entity>
