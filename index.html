@@ -6,9 +6,12 @@
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
 
+    <script src="https://rawgit.com/bestiejs/platform.js/master/platform.js"></script>
+<script src="https://rawgit.com/protyze/aframe-always-fullscreen-component/master/dist/aframe-always-fullscreen-component.min.js"></script>
+
   </head>
   <body>
-    <a-scene vr-mode-ui="enabled: false">
+    <a-scene vr-mode-ui="enabled: false" embedded always-fullscreen>
     	<a-assets>
           <audio id="pajaro" src="assets/Pajaros.mp3" autoplay="true" preload="auto"></audio>
           <img id="pajaroboton" src="assets/pajaro.png"></img>
