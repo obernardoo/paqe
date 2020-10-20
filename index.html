@@ -5,13 +5,13 @@
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-    <script src="arrow-key-rotation.js"></script>
-    <script src="https://rawgit.com/bestiejs/platform.js/master/platform.js"></script>
-<script src="https://rawgit.com/protyze/aframe-always-fullscreen-component/master/dist/aframe-always-fullscreen-component.min.js"></script>
+    <!--<script src="arrow-key-rotation.js"></script>-->
+    <!--<script src="https://rawgit.com/bestiejs/platform.js/master/platform.js"></script>-->
+    <!--<script src="https://rawgit.com/protyze/aframe-always-fullscreen-component/master/dist/aframe-always-fullscreen-component.min.js"></script>-->
 
   </head>
   <body>
-    <a-scene  embedded always-fullscreen> <!-- vr-mode-ui="enabled: false" -->
+    <a-scene  > <!--  embedded always-fullscreen {-}- vr-mode-ui="enabled: false" -->
     	<a-assets>
           <audio id="pajaro" src="assets/Pajaros.mp3" autoplay="true" preload="auto"></audio>
           <img id="pajaroboton" src="assets/pajaro.png"></img>
@@ -25,9 +25,7 @@
       </a-entity>
 
 
-
-
-      <a-entity cursor="rayOrigin: mouse" position="5 2 5" arrow-key-rotation>
+      <a-entity cursor="rayOrigin: mouse" position="5 2 5" >
         <a-sphere position="0 0 0"  radius="0.4" color="#FF2D00" material="color: #FF2D00" id="Boton" sound="src: url(assets\pajaro2.mp3); on: click"
           event-set__down="_event: mousedown; material.color: #B42000; position: 0 0 -0.03"
           event-set__up="_event: mouseup; material.color: #FF2D00; position: 0 0 0">
