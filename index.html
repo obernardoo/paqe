@@ -16,19 +16,18 @@
       <a-sky src="assets/image.jpg" rotation="0 -90 0" material="color: #FFF"></a-sky>
 
   		<a-entity cursor="rayOrigin: mouse" position="0 2 -5" >
-  		<a-entity id="elmo" position="0 0 0" rotation="0 0 0" scale="1 1 1" geometry="primitive: box" material="src: #pajaroboton; alphaTest:  0.2" sound="src: #pajaro; on: click">
-      </a-entity>
+  		    <a-entity id="elmo" position="0 0 0" rotation="0 0 0" scale="1 1 1" geometry="primitive: plane" material="src: #pajaroboton; alphaTest:  0.2" sound="src: #pajaro; on: click">
+          </a-entity>
       </a-entity>
 
 
 
 
       <a-entity cursor="rayOrigin: mouse" position="5 2 5">
-        <a-cylinder position="0 0 0"  radius="0.2" height="1" color="#FF2D00" material="color: #FF2D00" geometry="radius: 0.075; height: 0.2" id="Boton" rotation="0 0 0" sound="src: url(assets\pajaro2.mp3); on: click"
+        <a-sphere position="0 0 0"  radius="0.4" color="#FF2D00" material="color: #FF2D00" id="Boton" sound="src: url(assets\pajaro2.mp3); on: click"
           event-set__down="_event: mousedown; material.color: #B42000; position: 0 0 -0.03"
           event-set__up="_event: mouseup; material.color: #FF2D00; position: 0 0 0">
-        </a-cylinder>
-        <!--sound="src: url(assets\bocinaclaxon.mp3); on: click" -->
+        </a-sphere>
       </a-entity>
 
 
