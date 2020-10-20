@@ -15,9 +15,9 @@
 
       <a-sky src="assets/image.jpg" rotation="0 -90 0"></a-sky>
 
-  		<!-- <a-entity cursor position="0 2 -5" ></a-entity>-->
-  		<a-entity id="elmo" position="0 2 -5" rotation="0 45 45" scale="2 2 2" geometry="primitive: box" material="src: #pajaroboton" >
-  		<a-sound src="#pajaro" position="0 2 -5"></a-sound>
+  		<a-entity cursor="rayOrigin: mouse" position="0 2 -5" >
+  		<a-entity id="elmo" position="0 0 0" rotation="0 45 45" scale="2 2 2" geometry="primitive: box" material="src: #pajaroboton" sound="src: #pajaro; on: click">
+      </a-entity>
       </a-entity>
 
 
