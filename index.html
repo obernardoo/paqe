@@ -6,21 +6,52 @@
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-ambisonic-component"></script>
+    <script src="scripts/play-on-window-click.js"></script>
+		<script src="scripts/hide-once-playing.js"></script>
+		<script src="scripts/play-on-vrdisplayactivate-or-enter-vr.js"></script>
     <!--<script src="arrow-key-rotation.js"></script>-->
     <!--<script src="https://rawgit.com/bestiejs/platform.js/master/platform.js"></script>-->
     <!--<script src="https://rawgit.com/protyze/aframe-always-fullscreen-component/master/dist/aframe-always-fullscreen-component.min.js"></script>-->
+    <style>
+			body {
+				font-family: 'Lucida Sans', 'Lucida Sans Regular',
+					'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+					sans-serif;
+			}
+			#model-reference {
+				position: fixed;
+				bottom: 8px;
+				left: 8px;
+				background-color: rgba(80, 80, 80, 0.5);
+				padding: 12px;
+				color: white;
+			}
+
+			a,
+			a:visited,
+			a:active {
+				color: currentColor;
+			}
+		</style>
 
   </head>
   <body>
-    <a-scene  > <!--  embedded always-fullscreen {-}- vr-mode-ui="enabled: false" -->
+    <a-scene light="defaultLightsEnabled: false" > <!--  embedded always-fullscreen {-}- vr-mode-ui="enabled: false" -->
     	<a-assets>
           <audio id="pajaro" src="assets/Pajaros.mp3" autoplay="true" preload="auto"></audio>
           <img id="pajaroboton" src="assets/pajaro.png"></img>
           <audio id="audio" src="assets/beach-ambisonic.mp4"></audio>
     	</a-assets>
 
-      <a-ambisonic src="#audio"></a-entity>
+
       <a-sky src="assets/image2.png" rotation="0 -90 0" material="color: #FFF"></a-sky>
+      <a-ambisonic
+				id="ambisonic"
+				src="#audio"
+				play-on-window-click
+				play-on-vrdisplayactivate-or-enter-vr
+				channel-map="FuMa"
+			></a-ambisonic>
 
   		<a-entity cursor="rayOrigin: mouse" position="2 2 -8" >
   		    <a-entity id="elmo" position="0 0 0" rotation="0 0 0" scale="1 1 1" geometry="primitive: plane" material="src: #pajaroboton; alphaTest: 0.3; shader: flat" sound="src: #pajaro; on: click">
@@ -36,10 +67,19 @@
       </a-entity>
 
 
-		<a-entity camera look-controls="reverseMouseDrag: true">
+      <a-camera look-controls="reverseMouseDrag: true">
+  				<!-- Text element for display messaging.  Hide once audio is playing. -->
+  				<a-entity id="msg" position="0 -0.3 -1.5" text="align:center;
+  					width:3;
+  					wrapCount:100;
+  					color:black;
+  					value:Click window to make audio play."
+  					hide-once-playing="#ambisonic">
+  				</a-entity>
+
 	<!--	<a-entity geometry="primitive: plane; height: 10; width: 10" position="0 0 -1"  material="color: gray; opacity: 0.5"></a-entity> -->
     <a-entity geometry="primitive: plane; height: 0.45; width: 0.8" position="0 0 -1"  material="color: gray; opacity: 0.5"></a-entity>
-    </a-entity>
+    </a-camera>
 
 	</a-scene>
   </body>
