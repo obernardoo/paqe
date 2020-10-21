@@ -38,16 +38,21 @@
   <body>
     <a-scene light="defaultLightsEnabled: false" > <!--  embedded always-fullscreen {-}- vr-mode-ui="enabled: false" -->
     	<a-assets>
-          <audio id="pajaro" src="assets/Pajaros.mp3" autoplay="true" preload="auto"></audio>
+          <img id="Fondo" src="assets/image2.png"></img>
           <img id="pajaroboton" src="assets/pajaro.png"></img>
-          <audio id="audio" src="assets/beach-ambisonic.mp4"></audio>
+
+          <audio id="audioFondo" src="assets/beach-ambisonic.mp4"></audio>
+          <audio id="Pajaro01" src="assets/Pajaro01.mp3" autoplay="true" preload="auto"></audio>
+          <audio id="Pajaro02" src="assets/Pajaro02.mp3" autoplay="true" preload="auto"></audio>
+          <audio id="Pajaro03" src="assets/Pajaro03.mp3" autoplay="true" preload="auto"></audio>
+          <audio id="Pajaro04" src="assets/Pajaro04.mp3" autoplay="true" preload="auto"></audio>
     	</a-assets>
 
 
-      <a-sky src="assets/image2.png" rotation="0 -90 0" material="color: #FFF"></a-sky>
+      <a-sky src="#Fondo" rotation="0 -90 0" material="color: #FFF"></a-sky>
       <a-ambisonic
 				id="ambisonic"
-				src="#audio"
+				src="#audioFondo"
         play-on-window-click
 				play-on-vrdisplayactivate-or-enter-vr
 				channel-map="FuMa"
@@ -59,11 +64,11 @@
           </a-entity>
       </a-entity>
 
-
-      <a-entity cursor="rayOrigin: mouse" position="5 2 6" >
-        <a-sphere position="0 0 0"  radius="0.2" color="#EF2D5E" material="color: #EF2D5E; shader: flat" id="Boton" sound="src: url(assets\pajaro2.mp3); on: click"
-          event-set__down="_event: mousedown; material.color: #BDBDBD; position: 0 0 -0.03"
-          event-set__up="_event: mouseup; material.color: #EF2D5E; position: 0 0 0">
+<!-- Pajaro 01 -->
+      <a-entity id="Pajaro 01" cursor="rayOrigin: mouse" position="5 2 6" >
+        <a-sphere position="0 0 0" radius="0.2" material="color: #EF2D5E; shader: flat" sound="src: #Pajaro01; on: click"
+          event-set__down="_event: mousedown; material.color: #BDBDBD; radius: 0.3"
+          event-set__up="_event: mouseup; material.color: #EF2D5E; radius: 0.2">
         </a-sphere>
       </a-entity>
 
