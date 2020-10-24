@@ -1,6 +1,9 @@
 <html>
   <head>
     <title>paqe</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
@@ -103,7 +106,13 @@
         </a-triangle>
       </a-entity>
 
-<a-triangle position="0 0 -2" material="color: #FFFFFF; shader: flat" color="#FFF" rotation="-90 0 0" scale="0.5 0.25 0.5"></a-triangle>
+      <a-entity id="Nodo02" cursor="rayOrigin: mouse" position="0 0 -2" >
+        <a-triangle  material="color: #FFFFFF; shader: flat" color="#FFF" rotation="-90 0 0" scale="0.5 0.25 0.5"
+          event-set__down="_event: mousedown; material.color: #DADADA"
+          event-set__up="_event: mouseup; material.color: #FFFFFF">
+        </a-triangle>
+      </a-entity>
+
 
     <a-camera look-controls="reverseMouseDrag: true">
           <!--<a-entity id="msg" position="0 -0.3 -1.5" text="align:center;
