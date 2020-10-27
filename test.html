@@ -1,0 +1,136 @@
+ <html>
+   <head>
+    <title>paqe test</title>
+
+     <meta name="apple-mobile-web-app-capable" content="yes">
+
+       <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+       <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+       <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
+       <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+       <script src="https://unpkg.com/aframe-ambisonic-component"></script>
+       <script src="scripts/play-on-window-click.js"></script>
+  	  	<script src="scripts/hide-once-playing.js"></script>
+  		 <script src="scripts/play-on-vrdisplayactivate-or-enter-vr.js"></script>
+
+    <script src="https://rawgit.com/protyze/aframe-asset-on-demand-component/master/dist/aframe-asset-on-demand-component.min.js"></script>
+
+    <!-- <script src="arrow-key-rotation.js"></script> -->
+    <!-- <script src="https://rawgit.com/bestiejs/platform.js/master/platform.js"></script> -->
+    <!-- <script src="https://rawgit.com/protyze/aframe-always-fullscreen-component/master/dist/aframe-always-fullscreen-component.min.js"></script> -->
+    <style>
+			body {
+				font-family: 'Lucida Sans', 'Lucida Sans Regular',
+					'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+					sans-serif;
+			}
+			#model-reference {
+				position: fixed;
+				bottom: 8px;
+				left: 8px;
+				background-color: rgba(80, 80, 80, 0.5);
+				padding: 12px;
+				color: white;
+			}
+
+			a,
+			a:visited,
+			a:active {
+				color: currentColor;
+			}
+		</style>
+
+  </head>
+  <body>
+    <a-scene light="defaultLightsEnabled: false" loading-screen="dotsColor: red; backgroundColor: black" > <!--  embedded always-fullscreen {-}- vr-mode-ui="enabled: false" -->
+    	<a-assets>
+          <img id="Fondo" src="assets/image2.png"></img>
+          <img id="pajaroboton" src="assets/pajaro.png"></img>
+
+          <audio id="audioFondo" src="assets/beach-ambisonic.mp4"></audio>
+          <audio id="Pajaro01" src="assets/Pajaro01.mp3" preload="auto" timeout="3000"></audio>
+          <audio id="Pajaro02" src="assets/Pajaro02.mp3" preload="auto" timeout="5000"></audio>
+          <audio id="Pajaro03" src="assets/Pajaro03.mp3" preload="auto" timeout="7000"></audio>
+          <audio id="Pajaro04" src="assets/Pajaro04.mp3" preload="auto" timeout="9000"></audio>
+    	</a-assets>
+
+    <!--  <a-sky src="#Fondo" rotation="0 -90 0" ></a-sky>-->
+      <a-videosphere rotation="0 -90 0" material="color: #FFF" asset-on-demand="src: https://klm-vr-axaxzmkc.netdna-ssl.com/video/episodes/episode2/360/chapter-2/chapter-2-l.mp4"></a-videosphere>
+      
+      <a-ambisonic
+				id="ambisonic"
+				src="#audioFondo"
+        play-on-window-click
+				play-on-vrdisplayactivate-or-enter-vr
+				channel-map="FuMa"
+        autoplay= "true"
+        volume= "0.5"
+			></a-ambisonic>
+
+  		<!--<a-entity cursor="rayOrigin: mouse" position="0 2 -6" >
+  		    <a-entity id="elmo" position="0 0 0" rotation="0 0 0" scale="1 1 1" geometry="primitive: plane" material="src: #pajaroboton; alphaTest: 0.3; shader: flat" sound="src: #pajaro; on: click">
+          </a-entity>
+      </a-entity>-->
+
+<!-- Pajaro 01 -->
+      <a-entity id="Pajaro 01" cursor="rayOrigin: mouse" position="7 2 5" >
+        <a-sphere  position="0 0 0" radius="0.2" material="color: #EF2D5E; shader: flat" sound="src: #Pajaro01; on: click"
+          event-set__down="_event: mousedown; material.color: #BDBDBD; radius: 0.16"
+          event-set__up="_event: mouseup; material.color: #BC264C; radius: 0.2">
+        </a-sphere>
+      </a-entity>
+
+<!-- Pajaro 02 -->
+      <a-entity id="Pajaro 02" cursor="rayOrigin: mouse" position="-1.3 5 6.5" >
+        <a-sphere  position="0 0 0" radius="0.2" material="color: #EF2D5E; shader: flat" sound="src: #Pajaro02; on: click"
+          event-set__down="_event: mousedown; material.color: #BDBDBD; radius: 0.16"
+          event-set__up="_event: mouseup; material.color: #EF2D5E; radius: 0.2">
+        </a-sphere>
+      </a-entity>
+
+<!-- Pajaro 03 -->
+      <a-entity id="Pajaro 03" cursor="rayOrigin: mouse" position="-7 1.3 2" >
+        <a-sphere  position="0 0 0" radius="0.2" material="color: #EF2D5E; shader: flat" sound="src: #Pajaro03; on: click"
+          event-set__down="_event: mousedown; material.color: #BDBDBD; radius: 0.16"
+          event-set__up="_event: mouseup; material.color: #EF2D5E; radius: 0.2">
+        </a-sphere>
+      </a-entity>
+
+<!-- Pajaro 04 -->
+      <a-entity id="Pajaro 04" cursor="rayOrigin: mouse" position="2.5 4.5 -6" >
+        <a-sphere  position="0 0 0" radius="0.2" material="color: #EF2D5E; shader: flat" sound="src: #Pajaro04; on: click"
+          event-set__down="_event: mousedown; material.color: #BDBDBD; radius: 0.16"
+          event-set__up="_event: mouseup; material.color: #EF2D5E; radius: 0.2">
+        </a-sphere>
+      </a-entity>
+
+      <a-entity id="Nodo01" cursor="rayOrigin: mouse" position="-2 0 0" >
+        <a-triangle  material="color: #FFFFFF; shader: flat" color="#FFF" rotation="-90 90 0" scale="0.5 0.25 0.5"
+          event-set__down="_event: mousedown; material.color: #DADADA"
+          event-set__up="_event: mouseup; material.color: #FFFFFF">
+        </a-triangle>
+      </a-entity>
+
+      <a-entity id="Nodo02" cursor="rayOrigin: mouse" position="0 0 -2" >
+        <a-triangle  material="color: #FFFFFF; shader: flat" color="#FFF" rotation="-90 0 0" scale="0.5 0.25 0.5"
+          event-set__down="_event: mousedown; material.color: #DADADA"
+          event-set__up="_event: mouseup; material.color: #FFFFFF">
+        </a-triangle>
+      </a-entity>
+
+
+    <a-camera look-controls="reverseMouseDrag: true">
+          <!--<a-entity id="msg" position="0 -0.3 -1.5" text="align:center;
+  					width:3;
+  					wrapCount:100;
+  					color:black;
+  					value:Click window to make audio play."
+  					hide-once-playing="#ambisonic">
+  				</a-entity>-->
+  				<!--	<a-entity geometry="primitive: plane; height: 10; width: 10" position="0 0 -1"  material="color: gray; opacity: 0.5"></a-entity> -->
+          <!--<a-entity geometry="primitive: plane; height: 0.45; width: 0.8" position="0 0 -1"  material="color: gray; opacity: 0.5"></a-entity>-->
+    </a-camera>
+
+	</a-scene>
+  </body>
+</html>
